@@ -121,6 +121,11 @@ document.querySelectorAll(".logout").forEach(button => {
 //modale
 
 const openModal1 = document.querySelector(".openModal1")
+
+  if (token) {
+    openModal1.style.display = 'inline-block';
+  }
+
 const modal1 = document.getElementById('modal1')
 const closeModal1 = document.querySelector(".js-modal-close1")
 
@@ -332,3 +337,5 @@ document.querySelector('.formAjout').addEventListener('submit', async e => {
   fileInput.value = '';
   infoDrop.style.display = 'flex';
 }
+
+
