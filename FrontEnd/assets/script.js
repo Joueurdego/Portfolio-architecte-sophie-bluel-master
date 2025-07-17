@@ -11,11 +11,11 @@ async function getWorks() {
 
 async function displayWorks() {
   const works = await getWorks();
-    gallery.innerHTML = '';
+  gallery.innerHTML = '';
   works.forEach(work => {
     const figure = document.createElement('figure');
     figure.dataset.categoryId = work.category.id;
-figure.dataset.workId = work.id;
+    figure.dataset.workId = work.id;
     const image = document.createElement('img');
     image.alt = work.title;
     const figcaption = document.createElement('figcaption');
@@ -31,6 +31,7 @@ displayWorks();
 const formulaire = document.createElement("form");
 formulaire.id = 'filtres';
 portfolio.insertBefore(formulaire, gallery);
+const filtres = document.getElementById('filtres')
 
 
 function createRadioButton(id, textContent) {
@@ -91,18 +92,23 @@ async function displayFilter() {
 }
 displayFilter();
 
+const modeedition = document.getElementById('modeedition')
 
 const token = localStorage.getItem("token");
 if (token) {
   console.log("Utilisateur connecté");
   document.querySelectorAll(".login").forEach(el => el.style.display = "none");
   document.querySelectorAll(".logout").forEach(el => el.style.display = "block");
-
+  filtres.style.display = "none";
+  modeedition.style.display = "flex"
+  
 } else {
   console.log("Utilisateur non connecté");
   document.querySelectorAll(".login").forEach(el => el.style.display = "block");
   document.querySelectorAll(".logout").forEach(el => el.style.display = "none");
-
+  filtres.style.display = "flex";
+  modeedition.style.display = "none"
+  
 }
 
 
@@ -113,7 +119,7 @@ document.querySelectorAll(".logout").forEach(button => {
 
     location.reload();
 
-  
+
   });
 });
 
@@ -122,16 +128,16 @@ document.querySelectorAll(".logout").forEach(button => {
 
 const openModal1 = document.querySelector(".openModal1")
 
-  if (token) {
-    openModal1.style.display = 'inline-block';
-  }
+if (token) {
+  openModal1.style.display = 'inline-block';
+}
 
 const modal1 = document.getElementById('modal1')
 const closeModal1 = document.querySelector(".js-modal-close1")
 
 
-openModal1.addEventListener('click',()=> {modal1.style.display = "flex"})
-closeModal1.addEventListener('click',()=> {modal1.style.display = "none"})
+openModal1.addEventListener('click', () => { modal1.style.display = "flex" })
+closeModal1.addEventListener('click', () => { modal1.style.display = "none" })
 
 
 modal1.addEventListener('click', (event) => {
@@ -147,13 +153,14 @@ const modal2 = document.getElementById('modal2')
 const closeModal2 = document.querySelector(".js-modal-close2")
 const modalback = document.querySelector(".js-modal-back")
 
-openModal2.addEventListener('click',()=> {
+openModal2.addEventListener('click', () => {
   modal2.style.display = "flex";
-modal1.style.display = "none";
+  modal1.style.display = "none";
 })
 
 
-closeModal2.addEventListener('click',()=> {modal2.style.display = "none"
+closeModal2.addEventListener('click', () => {
+  modal2.style.display = "none"
   reiniitialisation()
 })
 
@@ -165,10 +172,10 @@ modal2.addEventListener('click', (event) => {
 });
 
 
-modalback.addEventListener('click',()=> {
+modalback.addEventListener('click', () => {
   modal2.style.display = "none";
-modal1.style.display = "flex";
-reiniitialisation();
+  modal1.style.display = "flex";
+  reiniitialisation();
 })
 
 
@@ -225,15 +232,15 @@ async function handleDeleteWork(figure) {
     const response = await fetch(`http://localhost:5678/api/works/${workId}`, {
       method: 'DELETE',
       headers: {
-        'Authorization': `Bearer ${token}`, 
+        'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
       }
     });
     if (response.ok) {
       figure.remove();
-await displayWorks();
- await displayPicturs();
-    } 
+      await displayWorks();
+      await displayPicturs();
+    }
   } catch (error) {
     console.error("Erreur réseau :", error);
   }
@@ -284,7 +291,7 @@ const addPhotoBtn = document.getElementById('addPhotoBtn')
 const fileInput = document.getElementById('fileInput');
 
 addPhotoBtn.addEventListener('click', () => {
-  fileInput.click();  
+  fileInput.click();
 });
 
 fileInput.addEventListener('change', () => {
@@ -322,7 +329,7 @@ document.querySelector('.formAjout').addEventListener('submit', async e => {
     const newWork = await res.json();
     await displayWorks();
     await displayPicturs();
-    
+
     alert('Projet ajouté');
     e.target.reset();
     preview.removeAttribute('src');
@@ -333,7 +340,8 @@ document.querySelector('.formAjout').addEventListener('submit', async e => {
 });
 
 
-  function reiniitialisation(){ preview.src = '';
+function reiniitialisation() {
+  preview.src = '';
   fileInput.value = '';
   infoDrop.style.display = 'flex';
 }
