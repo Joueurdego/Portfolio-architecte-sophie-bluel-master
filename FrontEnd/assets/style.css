@@ -471,7 +471,7 @@ footer nav ul {
 	background-color: #E8F1F6;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 32px;
+
 }
 
 #infoDrop {
@@ -522,7 +522,7 @@ footer nav ul {
 	box-shadow: none;
 	outline: none;
 	cursor: pointer;
-	
+
 }
 
 h3 {
@@ -539,16 +539,16 @@ h4 {
 #texte {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-	margin-bottom: 32px;
+
 }
 
 
 
 .accepter {
-	
+
 	margin: 16px;
 	display: flex;
-margin-bottom: 40px;
+	margin-bottom: 40px;
 	justify-content: center;
 }
 
@@ -556,8 +556,8 @@ margin-bottom: 40px;
 	padding: 8px 20px;
 	border: none;
 	border-radius: 60px;
-	background-color: #A7A7A7;
 	color: white;
+	background-color: #1D6154;
 	font-size: 16px;
 	cursor: pointer;
 	width: 50%;
@@ -573,7 +573,7 @@ margin-bottom: 40px;
 }
 
 #choix {
-	
+
 	width: 100%;
 	height: 51px;
 	background-color: white;
@@ -582,18 +582,20 @@ margin-bottom: 40px;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-.portofoliohead{
- display: grid;
- grid-template-columns:1fr  1fr  1fr  1fr  1fr ;
- margin-bottom: 32px;
+.portofoliohead {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	margin-bottom: 32px;
 }
+
 .portofoliohead h2 {
 	margin: 0px;
 	grid-column: 3;
 }
-.openModal1{
+
+.openModal1 {
 	border: none;
-	background-color:white ;
+	background-color: white;
 	grid-column: 4;
 	margin-bottom: 30px;
 	margin-right: 100px;
@@ -606,23 +608,99 @@ margin-bottom: 40px;
 }
 
 #modeedition {
-  position: fixed; 
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 59px;
-  background-color: black;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 59px;
+	background-color: black;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
 }
 
 body {
-  padding-top: 59px;
+	padding-top: 59px;
 }
+
 #modeedition i {
 	padding: 16px;
 }
 
+
+
+.blockdropzone {
+	margin-bottom: 32px;
+}
+
+.titre {
+	margin-bottom: 32px;
+}
+
+.titleEmpty,
+.imageEmpty {
+	margin-top: 8px;
+	min-height: 1em;
+	color: red;
+}
+
+#titlemodal {
+	margin-top: 32px;
+	text-align: center;
+}
+
+
+.confirmation,
+.suppression {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 9999;
+}
+
+.confirmation-box {
+	background: white;
+	padding: 2rem;
+
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	text-align: center;
+}
+
+.confirmation-box p {
+	font-size: 24px;
+}
+
+#ok {
+	color: #1D6154;
+	background-color: white;
+	margin-top: 32px;
+	width: 64px;
+	height: 32px;
+	text-align: center;
+	border: none;
+	cursor: pointer;
+	font-size: 16px;
+	border: 2px solid #1D6154;
+}
+
+#oui,
+#non {
+	color: #1D6154;
+	background-color: white;
+	margin-top: 32px;
+	width: 64px;
+	height: 32px;
+	text-align: center;
+	border: none;
+	cursor: pointer;
+	font-size: 16px;
+	border: 2px solid #1D6154;
+}

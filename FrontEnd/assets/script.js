@@ -222,13 +222,16 @@ function addDeleteListener(button, figure) {
   });
 }
 
-async function handleDeleteWork(figure) {
-  const confirmed = confirm("Voulez-vous vraiment supprimer ce projet ?");
-  if (!confirmed) return;
+function handleDeleteWork(figure) {
+  const suppression = document.getElementById('suppression');
+  const btnOui = document.getElementById('oui');
+  const btnNon = document.getElementById('non');
 
-  const workId = figure.dataset.workId;
+  suppression.style.display = 'flex';
 
-  try {
+  btnOui.onclick = async () => {
+    suppression.style.display = 'none';
+    const workId = figure.dataset.workId;
     const response = await fetch(`http://localhost:5678/api/works/${workId}`, {
       method: 'DELETE',
       headers: {
@@ -241,12 +244,11 @@ async function handleDeleteWork(figure) {
       await displayWorks();
       await displayPicturs();
     }
-  } catch (error) {
-    console.error("Erreur réseau :", error);
-  }
-}
+  };
 
-
+  btnNon.onclick = () => {
+    suppression.style.display = 'none';
+  };}
 
 //modal 2
 
@@ -303,7 +305,9 @@ fileInput.addEventListener('change', () => {
 });
 
 
-
+  const imageEmpty = document.querySelector('.imageEmpty');
+  const titleEmpty = document.querySelector('.titleEmpty');
+    
 document.querySelector('.formAjout').addEventListener('submit', async e => {
   e.preventDefault();
 
@@ -312,8 +316,10 @@ document.querySelector('.formAjout').addEventListener('submit', async e => {
   const category = document.getElementById('choix').value;
   const token = localStorage.getItem('token');
 
-  if (!file || !title || !category) return alert('Remplis tout stp');
-
+   if (!modal2error()) {
+    return;
+  }
+  
   const data = new FormData();
   data.append('image', file);
   data.append('title', title);
@@ -330,7 +336,8 @@ document.querySelector('.formAjout').addEventListener('submit', async e => {
     await displayWorks();
     await displayPicturs();
 
-    alert('Projet ajouté');
+    
+    confirmation.style.display = 'flex'
     e.target.reset();
     preview.removeAttribute('src');
     document.getElementById('infoDrop').style.display = 'flex';
@@ -340,10 +347,53 @@ document.querySelector('.formAjout').addEventListener('submit', async e => {
 });
 
 
+const confirmation = document.getElementById('confirmation');
+const ok = document.getElementById('ok');
+
+console.log("Bouton ok :", ok);
+console.log("Modale confirmation :", confirmation);
+
+if (ok) {
+  ok.addEventListener('click', () => {
+    console.log("Bouton OK cliqué");
+    confirmation.style.display = 'none';
+  });
+} else {
+  console.error("Bouton ok introuvable !");
+}
+
+
 function reiniitialisation() {
+  imageEmpty.textContent = "";
+  titleEmpty.textContent = ""
   preview.src = '';
   fileInput.value = '';
   infoDrop.style.display = 'flex';
 }
+
+
+function modal2error() {
+  let hasError = false;
+
+  const file = document.getElementById('fileInput').files[0];
+  const title = document.getElementById('texte').value;
+
+  if (!file) {
+    imageEmpty.textContent = "Erreur : image manquante";
+    hasError = true;
+  } else {
+    imageEmpty.textContent = "";
+  }
+
+  if (!title) {
+    titleEmpty.textContent = "Erreur : titre manquant";
+    hasError = true;
+  } else {
+    titleEmpty.textContent = "";
+  }
+
+  return !hasError;
+}
+
 
 

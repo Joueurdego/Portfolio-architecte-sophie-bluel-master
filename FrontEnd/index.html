@@ -14,11 +14,17 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
+
+
 <body>
-	<aside ><div id="modeedition"><i class="fa-solid fa-pen-to-square"></i><p>mode édition</p></div></aside>
-	
+	<aside>
+		<div id="modeedition"><i class="fa-solid fa-pen-to-square"></i>
+			<p>mode édition</p>
+		</div>
+	</aside>
+
 	<header>
-		
+
 		<h1><a href="index.html">Sophie Bluel <span>Architecte d'intérieur</span></a></h1>
 		<nav>
 			<ul>
@@ -49,7 +55,8 @@
 		<section id="portfolio">
 			<div class="portofoliohead">
 				<h2>Mes Projets</h2>
-				<button type="button" class="openModal1" style="display:none" ;><i class="fa-solid fa-pen-to-square"></i>Modifier</button>
+				<button type="button" class="openModal1" style="display:none" ;><i
+						class="fa-solid fa-pen-to-square"></i>Modifier</button>
 			</div>
 
 			<aside id="modal1" class="modal" role="dialog" aria-labelledby="titlemodal" style="display:none;">
@@ -78,18 +85,23 @@
 					<div class="bodymodal2">
 						<h3 id="titlemodal">Ajout photo</h3>
 						<form action="" class="formAjout">
-							<div id="dropzone" class="dropzone" display="true">
-								<div id="infoDrop">
-									<i id="iconfond" class="fa-solid fa-mountain-sun"></i>
-									<button id="addPhotoBtn" type="button">+ Ajouter photo</button>
-									<p>jpg, png : 4mo max</p>
+							<div class="blockdropzone">
+								<div id="dropzone" class="dropzone" display="true">
+									<div id="infoDrop">
+										<i id="iconfond" class="fa-solid fa-mountain-sun"></i>
+										<button id="addPhotoBtn" type="button">+ Ajouter photo</button>
+										<p>jpg, png : 4mo max</p>
+									</div>
+									<img id="preview" />
 								</div>
-								<img id="preview" />
+								<p class="imageEmpty"></p>
+								<input type="file" id="fileInput" accept="image/*" hidden />
 							</div>
-							<input type="file" id="fileInput" accept="image/*" hidden />
-
-							<h4>Titre</h4>
-							<input type="text" id="texte" name="texte">
+							<div class="titre">
+								<h4>Titre</h4>
+								<input type="text" id="texte" name="texte">
+								<p class="titleEmpty"></p>
+							</div>
 							<h4>Catégorie</h4>
 							<select id="choix" name="choix">
 
@@ -100,6 +112,26 @@
 					</div>
 				</div>
 			</aside>
+
+
+			<aside id="confirmation" class="confirmation" role="dialog" style="display:none;">
+				<div class="confirmation-box">
+					<p>Projet ajouté</p>
+					<button id="ok">Ok</button>
+				</div>
+			</aside>
+
+
+			<aside id="suppression" class="suppression" role="dialog" style="display:none;">
+				<div class="confirmation-box">
+					<p>Voulez-vous vraiment supprimer ce projet ?</p>
+					<div class="buttonSuppression">
+						<button id="oui">Oui</button>
+						<button id="non">Non</button>
+					</div>
+				</div>
+			</aside>
+
 
 
 			<div class="gallery">
@@ -128,7 +160,8 @@
 			</ul>
 		</nav>
 	</footer>
+
+	<script src="./assets/script.js"></script>
 </body>
-<script src="./assets/script.js"></script>
 
 </html>

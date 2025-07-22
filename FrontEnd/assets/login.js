@@ -28,9 +28,7 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
                 if (response.status === 403) {
                     throw new Error("Accès refusé");
                 }
-           //     if (response.status === 500) {
-           //         throw new Error("Erreur interne du serveur");
-           //     }
+
                 throw new Error("Erreur inconnue : " + response.status);
             }
             return response.json();
