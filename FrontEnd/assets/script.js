@@ -264,7 +264,7 @@ async function displayOptions() {
       categories.push(work.category);
     }
   }
-  const choix = document.getElementById('choix');
+  
   categories.forEach(categorie => {
     const option = document.createElement('option');
     option.value = categorie.id;
