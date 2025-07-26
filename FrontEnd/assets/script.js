@@ -8,7 +8,7 @@ async function getWorks() {
   return data;
 }
 
-
+//affichage des travaux
 async function displayWorks() {
   const works = await getWorks();
   gallery.innerHTML = '';
@@ -27,7 +27,7 @@ async function displayWorks() {
 }
 displayWorks();
 
-
+//formulaire
 const formulaire = document.createElement("form");
 formulaire.id = 'filtres';
 portfolio.insertBefore(formulaire, gallery);
@@ -92,6 +92,8 @@ async function displayFilter() {
 }
 displayFilter();
 
+
+// Mmode édition
 const modeedition = document.getElementById('modeedition')
 
 const token = localStorage.getItem("token");
@@ -111,7 +113,7 @@ if (token) {
   
 }
 
-
+//déconnexion
 document.querySelectorAll(".logout").forEach(button => {
   button.addEventListener("click", () => {
     console.log("Logout cliqué");
@@ -124,7 +126,7 @@ document.querySelectorAll(".logout").forEach(button => {
 });
 
 
-//modale
+//modales
 
 const openModal1 = document.querySelector(".openModal1")
 
@@ -182,7 +184,7 @@ modalback.addEventListener('click', () => {
 
 const galleryImg = document.querySelector(".galleryImg")
 
-
+//modal1
 
 function createFigureModal(work) {
   const figure = document.createElement('figure');
@@ -251,7 +253,7 @@ function handleDeleteWork(figure) {
   };}
 
 //modal 2
-
+//menu déroulant
 const choix = document.getElementById('choix');
 
 async function displayOptions() {
@@ -275,7 +277,7 @@ async function displayOptions() {
 
 displayOptions();
 
-
+//dropzone
 const dropzone = document.getElementById('dropzone');
 const preview = document.getElementById('preview');
 
@@ -288,7 +290,7 @@ dropzone.addEventListener('drop', (e) => {
   infoDrop.style.display = "none";
 });
 
-
+//ajouté une photo
 const addPhotoBtn = document.getElementById('addPhotoBtn')
 const fileInput = document.getElementById('fileInput');
 
@@ -304,7 +306,7 @@ fileInput.addEventListener('change', () => {
   }
 });
 
-
+//Envoi du formulaire
   const imageEmpty = document.querySelector('.imageEmpty');
   const titleEmpty = document.querySelector('.titleEmpty');
     
@@ -346,7 +348,7 @@ document.querySelector('.formAjout').addEventListener('submit', async e => {
   }
 });
 
-
+//message de confirmation
 const confirmation = document.getElementById('confirmation');
 const ok = document.getElementById('ok');
 
@@ -371,7 +373,7 @@ function reiniitialisation() {
   infoDrop.style.display = 'flex';
 }
 
-
+//Validation du formulaire
 function modal2error() {
   let hasError = false;
 
