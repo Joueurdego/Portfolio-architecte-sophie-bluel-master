@@ -9,7 +9,7 @@ Ce repo git contient les 2 briques logicielles du projet
 - Backend
 
 ## Pour le lancer le code
-## Lancement du backend
+### Lancement du backend
 
 Ouvrez un terminal dans le dossier Backend
 
