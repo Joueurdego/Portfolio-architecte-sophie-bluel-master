@@ -9,12 +9,28 @@ Ce repo git contient les 2 briques logicielles du projet
 - Backend
 
 ## Pour le lancer le code
-### Backend
-Ouvrir le dossier Backend et lire le README.md
+## Lancement du backend
+
+Ouvrez un terminal dans le dossier Backend
+
+Pour installer les dépendances du projet, executez la commande 
+```bash 
+npm install
+```
+
+Une fois les dépendances installées lancez le projet avec la commande 
+```bash 
+npm start
+```
+
 
 ### Frontend
 Ouvrir le dossier Frontend et lancer liveserver de votre IDE
- 
-## Astuce
- 
-Si vous désirez afficher le code du backend et du frontend, faites le dans 2 instances de VSCode différentes pour éviter tout problème
+
+## Compte de test pour Sophie Bluel
+
+|email|password|
+| :---------------: | :---------------: |
+|
+sophie.bluel@test.tld
+|S0phie|
